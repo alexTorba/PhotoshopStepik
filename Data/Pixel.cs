@@ -8,7 +8,6 @@ namespace MyPhotoshop
     //why i cant use strcut instead of class
     public struct Pixel
     {
-
         public Pixel(double r, double g, double b)
         {
             this.r = this.g = this.b = 0;
@@ -61,6 +60,13 @@ namespace MyPhotoshop
         private double b;
         public double B { get { return b; } set { b = Check(value); } }
 
-    }
+        public static Pixel operator *(Pixel pixel, double number)
+        {
+            pixel.R = Trim(pixel.R * number);
+            pixel.G = Trim(pixel.G * number);
+            pixel.B = Trim(pixel.B * number);
 
+            return pixel;
+        }
+    }
 }

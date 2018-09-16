@@ -8,8 +8,6 @@ namespace MyPhotoshop
         public static Photo Bitmap2Photo(Bitmap bmp)
         {
             Photo photo = new Photo(bmp.Width, bmp.Height);
-            
-                
 
             for (int x = 0; x < bmp.Width; x++)
                 for (int y = 0; y < bmp.Height; y++)
