@@ -7,18 +7,15 @@ namespace MyPhotoshop
     {
         public static Photo Bitmap2Photo(Bitmap bmp)
         {
-            Photo photo = new Photo
-            {
-                width = bmp.Width,
-                height = bmp.Height,
-                data = new Pixel[bmp.Width, bmp.Height]
-            };
+            Photo photo = new Photo(bmp.Width, bmp.Height);
+            
+                
 
             for (int x = 0; x < bmp.Width; x++)
                 for (int y = 0; y < bmp.Height; y++)
                 {
                     var pixel = bmp.GetPixel(x, y);
-                    photo.data[x, y] = new Pixel()
+                    photo[x, y] = new Pixel()
                     {
                         R = (double)pixel.R / 255,
                         G = (double)pixel.G / 255,
@@ -43,9 +40,9 @@ namespace MyPhotoshop
                 for (int y = 0; y < bmp.Height; y++)
                     bmp.SetPixel(x, y, Color.FromArgb
                         (
-                        ToChannel(photo.data[x, y].R),
-                        ToChannel(photo.data[x, y].G),
-                        ToChannel(photo.data[x, y].B)
+                        ToChannel(photo[x, y].R),
+                        ToChannel(photo[x, y].G),
+                        ToChannel(photo[x, y].B)
                         ));
             return bmp;
         }
