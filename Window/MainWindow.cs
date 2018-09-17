@@ -100,30 +100,31 @@ namespace MyPhotoshop
 
             int y = 0;
 
-            foreach (var param in filter.GetParameters())
-            {
-                var label = new Label();
-                label.Left = 0;
-                label.Top = y;
-                label.Width = parametersPanel.Width - 50;
-                label.Height = 20;
-                label.Text = param.Name;
-                parametersPanel.Controls.Add(label);
+            if (filter.GetParameters() != null)
+                foreach (var param in filter.GetParameters())
+                {
+                    var label = new Label();
+                    label.Left = 0;
+                    label.Top = y;
+                    label.Width = parametersPanel.Width - 50;
+                    label.Height = 20;
+                    label.Text = param.Name;
+                    parametersPanel.Controls.Add(label);
 
-                var box = new NumericUpDown();
-                box.Left = label.Right;
-                box.Top = y;
-                box.Width = 50;
-                box.Height = 20;
-                box.Value = (decimal)param.DefaultValue;
-                box.Increment = (decimal)param.Increment / 3;
-                box.Maximum = (decimal)param.MaxValue;
-                box.Minimum = (decimal)param.MinValue;
-                box.DecimalPlaces = 2;
-                parametersPanel.Controls.Add(box);
-                y += label.Height + 5;
-                parametersControls.Add(box);
-            }
+                    var box = new NumericUpDown();
+                    box.Left = label.Right;
+                    box.Top = y;
+                    box.Width = 50;
+                    box.Height = 20;
+                    box.Value = (decimal)param.DefaultValue;
+                    box.Increment = (decimal)param.Increment / 3;
+                    box.Maximum = (decimal)param.MaxValue;
+                    box.Minimum = (decimal)param.MinValue;
+                    box.DecimalPlaces = 2;
+                    parametersPanel.Controls.Add(box);
+                    y += label.Height + 5;
+                    parametersControls.Add(box);
+                }
             Controls.Add(parametersPanel);
         }
 
