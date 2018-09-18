@@ -5,18 +5,16 @@ using System.Text;
 
 namespace MyPhotoshop
 {
-    class GrayscaleFilter : PixelFilter
+    class GrayscaleFilter : PixelFilter<EmptyParameters>
     {
-        public GrayscaleFilter() : base( new EmptyParameters())
-        {
-        }
-
+        
         public override string ToString()
         {
             return "Черно - белое";
         }
 
-        public override Pixel ProcessPixel(Pixel pixel, IParametrs parametrs)
+        
+        public override Pixel ProcessPixel(Pixel pixel, EmptyParameters parametrs)
         {
             var light = pixel.R + pixel.G + pixel.B;
             light /= 3;
