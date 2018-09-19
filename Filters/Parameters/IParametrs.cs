@@ -10,9 +10,6 @@ namespace MyPhotoshop
     /// </summary>
     public interface IParametrs
     {
-        ParameterInfo[] GetDescription();
-
-        void Parce(double[] values);
-
+      
     }
 }

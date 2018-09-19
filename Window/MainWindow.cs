@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Diagnostics;
 
 namespace MyPhotoshop
 {
@@ -131,6 +132,7 @@ namespace MyPhotoshop
 
         void Process(object sender, EventArgs empty)
         {
+
             var data = parametersControls.Select(z => (double)z.Value).ToArray();
             var filter = (IFilter)filtersSelect.SelectedItem;
             Photo result = null;
@@ -148,8 +150,8 @@ namespace MyPhotoshop
             }
 
             processed.Image = resultBmp;
-        }
 
+        }
 
     }
 }
